@@ -1,10 +1,45 @@
+Here's an updated README for your development-utilities repository:
+
+---
+
 # Development Utilities
 
-A collection of automation scripts and tools designed to streamline common tasks and system configuration on macOS.
+A curated collection of automation scripts, configuration tools, and utilities designed to streamline development workflows and system setup on macOS.
 
 ## Contents
 
-- calendar-cleaner - Python utility for filtering and managing ICS calendar files by date, removing old events while preserving calendar metadata
-- initial-install - Shell script for bootstrapping a complete macOS development environment with package managers, CLI tools, and terminal configuration
+### System Configuration
 
-Each utility includes its own detailed documentation. See individual README files for specific usage instructions, requirements, and features.
+- **[initial-install](./initial-install/)** - Comprehensive shell script for bootstrapping a complete macOS development environment with Homebrew, Git configuration, Oh My Zsh, Powerlevel10k, and essential CLI tools
+
+- **[iterm2-config](./iterm2-config/)** - Pre-configured iTerm2 settings and profiles for a production-ready terminal experience, including hotkey window setup and theme configurations
+
+- **[nerd-fonts](./nerd-fonts/)** - Collection of patched programmer fonts with extended glyph support for powerline, devicons, and other terminal enhancements
+
+### Development Tools
+
+- **[git-cleaner](./git-cleaner/)** - Repository maintenance utility using BFG Repo-Cleaner for removing sensitive data, large files, and cleaning Git history
+
+### Productivity Scripts
+
+- **[calendar-cleaner](./calendar-cleaner/)** - Python utility for filtering ICS calendar files by date, designed to manage large calendars and remove historical events while preserving metadata
+
+## Getting Started
+
+Each utility includes its own detailed documentation with installation instructions, usage examples, and troubleshooting guides. Navigate to the specific tool's directory and refer to its README file for complete information.
+
+## Requirements
+
+- macOS (Intel or Apple Silicon)
+- Python 3.6+ (for Python-based utilities)
+- Bash/Zsh shell (for shell scripts)
+- Specific tools may have additional prerequisites detailed in their respective READMEs. Each utility includes its own detailed documentation. See individual README files for specific usage instructions, requirements, and features.
+
+## License
+
+This repository is under MIT License if not specified directly by nested utility. See individual LICENSE files in each utility directory for specific licensing information.
+
+---
+
+**Last Updated**: November 2025
+
