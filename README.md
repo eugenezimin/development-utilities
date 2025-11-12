@@ -20,6 +20,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 - **[git-cleaner](./git-cleaner/)** - Repository maintenance utility using BFG Repo-Cleaner for removing sensitive data, large files, and cleaning Git history
 
+- **[git-mirror](./git-mirror/)** - Another repository cloning utility allowing to clone the WHOLE git repository, including WHOLE history from ALL branches. Beware: repositories might be too heavy in size!
+
 ### Productivity Scripts
 
 - **[calendar-cleaner](./calendar-cleaner/)** - Python utility for filtering ICS calendar files by date, designed to manage large calendars and remove historical events while preserving metadata
