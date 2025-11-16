@@ -1,0 +1,28 @@
+{
+  "defaultVertexStyle": {
+    "fontFamily": "Charlie Display",
+    "fontSize": "11",
+    "fillColor": "none",
+    "strokeColor": "#6c8ebf",
+    "strokeWidth": "0.75",
+    "rounded": "1",
+    "fontColor": "#6c8ebf",
+    "absoluteArcSize": "1"
+  },
+  "defaultEdgeStyle": {
+    "fontFamily": "Charlie Display",
+    "fontSize": "11",
+    "edgeStyle": "orthogonalEdgeStyle",
+    "rounded": "1",
+    "jettySize": "auto",
+    "orthogonalLoop": "1",
+    "fillColor": "#dae8fc",
+    "strokeColor": "#999999",
+    "strokeWidth": "0.5",
+    "endSize": "3",
+    "startSize": "3",
+    "fontColor": "#808080"
+  },
+  "defaultGridEnabled": true,
+  "defaultPageVisible": true
+}
