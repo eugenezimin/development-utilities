@@ -1,7 +1,3 @@
-Here's an updated README for your development-utilities repository:
-
----
-
 # Development Utilities
 
 A curated collection of automation scripts, configuration tools, and utilities designed to streamline development workflows and system setup on macOS.
@@ -25,6 +21,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 ### Productivity Scripts
 
 - **[calendar-cleaner](./calendar-cleaner/)** - Python utility for filtering ICS calendar files by date, designed to manage large calendars and remove historical events while preserving metadata
+
+- **[draw-io-config](./draw-io-config/)** - JSON configuration file for Draw.io editor. Should be applied through `Extras->Configuration...` menu.
 
 ## Getting Started
 
