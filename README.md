@@ -24,6 +24,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 - **[draw-io-config](./draw-io-config/)** - JSON configuration file for Draw.io editor. Should be applied through `Extras->Configuration...` menu.
 
+- **[vscode-configuration-dark](./vscode-configuration-dark/)** - Configuration file for Visual Studio Code editor. It contains a profile to configure a Dark Theme with few customizations and list of necessary extentions.
+
 ## Getting Started
 
 Each utility includes its own detailed documentation with installation instructions, usage examples, and troubleshooting guides. Navigate to the specific tool's directory and refer to its README file for complete information.
