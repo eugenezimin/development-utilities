@@ -26,7 +26,7 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 - **[vscode-configuration-dark](./vscode-configuration-dark/)** - Configuration file for Visual Studio Code editor. It contains a profile to configure a Dark Theme with few customizations and list of necessary extentions.
 
-- **[macos-icons](./macos-icons/)** - nice extended version of macOS 26 Tahoe icons in form of PNG images of 1024x1024 pixels with short instruction how to change the tint in the system.
+- **[macOS-icons](./macOS-icons/)** - nice extended version of macOS 26 Tahoe icons in form of PNG images of 1024x1024 pixels with short instruction how to change the tint in the system.
 
 ## Getting Started
 
