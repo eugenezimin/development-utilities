@@ -1,3 +1,4 @@
+mod json_no_timestamps;
 use chrono::{DateTime, NaiveDateTime, Utc};
 use regex::Regex;
 use std::env;
@@ -6,9 +7,15 @@ use std::io::{self, BufRead};
 use std::path::Path;
 use std::sync::LazyLock;
 
-// Compile the regex once at startup instead of on every line
+// Regex to match lines like:
+// **2024-05-01T12:00:00 - Alice:** Hello, how are you?
+// static MSG_REGEX: LazyLock<Regex> =
+//     LazyLock::new(|| Regex::new(r"\*\*(.+?) - (.+?):\*\* (.+)").unwrap());
+
+// Regex to match lines like:
+// 2024-05-01T12:00:00 - Alice: Hello, how are you?
 static MSG_REGEX: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"\*\*(.+?) - (.+?):\*\* (.+)").unwrap());
+    LazyLock::new(|| Regex::new(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}) - (.+?): (.+)").unwrap());
 
 #[derive(Clone, Debug)]
 struct Conversation {
@@ -21,6 +28,16 @@ struct Conversation {
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
     let file_path = args.get(1).map(String::as_str).unwrap_or("./output.txt");
+    let flag = args.get(2).map(String::as_str).unwrap_or("");
+    if flag == "--help" {
+        eprintln!("Usage: {} [input_file] [--help]", args[0]);
+        eprintln!("  input_file: Path to the input text file (default: './output.txt')");
+        eprintln!("  --help: Show this help message");
+        return Ok(());
+    } else if flag == "json" {
+        json_no_timestamps::json_to_md(file_path, "output.md");
+        return Ok(());
+    }
 
     let conversations = parse_conversations(file_path)?;
 
@@ -128,10 +145,10 @@ fn to_lowercase_first(s: &str) -> String {
 
 fn to_markdown_table(conversations: &[Conversation]) -> String {
     let mut table = String::new();
-    
+
     table.push_str("| Start Time | Name | Message |\n");
     table.push_str("|------------|------|--------|\n");
-    
+
     for conv in conversations {
         table.push_str(&format!(
             "| {} | {} | {} |\n",
@@ -140,6 +157,6 @@ fn to_markdown_table(conversations: &[Conversation]) -> String {
             conv.message
         ));
     }
-    
+
     table
 }
