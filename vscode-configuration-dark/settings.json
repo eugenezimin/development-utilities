@@ -1,0 +1,188 @@
+{
+  // UI theme for the entire VS Code workbench.
+  "workbench.colorTheme": "Bluloco Dark Muted W77",
+  // Editor text size.
+  "editor.fontSize": 15,
+  // Wrap editor lines at a bounded width instead of the full editor width.
+  "editor.wordWrap": "bounded",
+  // Maximum column used when word wrap is bounded.
+  "editor.wordWrapColumn": 120,
+  // Editor font stack, with fallbacks if the first font is unavailable.
+  "editor.fontFamily": "'AudioLink Mono', 'Anka/Coder', 'Anka/Coder Condensed', 'Courier New', monospace",
+  // Editor font weight.
+  "editor.fontWeight": "400",
+  // Enable programming ligatures in the editor font, if supported.
+  "editor.fontLigatures": true,
+  // Editor line height multiplier.
+  "editor.lineHeight": 1.3,
+  // Extra spacing between editor characters.
+  "editor.letterSpacing": 0.5,
+  // Python type-checking strictness used by the Python language server.
+  "python.analysis.typeCheckingMode": "standard",
+  // Terminal font stack; separate from the editor font stack.
+  "terminal.integrated.fontFamily": "'AudioLink Mono', 'Anka/Coder', 'Anka/Coder Condensed', 'Courier New', monospace",
+  // Terminal font size.
+  "terminal.integrated.fontSize": 14,
+  // Terminal font weight.
+  "terminal.integrated.fontWeight": "200",
+  // Terminal line height multiplier.
+  "terminal.integrated.lineHeight": 1.25,
+  // Extra spacing between terminal characters.
+  "terminal.integrated.letterSpacing": 2,
+  // Custom UI font family used by the Custom UI Style extension.
+  // Dependency: requires the extension to be installed and enabled.
+  "custom-ui-style.font.sansSerif": "Charlie Display",
+  // Default profile used when opening a new window.
+  "window.newWindowProfile": "Default",
+  // Python file formatting behavior.
+  // Dependency: ms-python.black-formatter must be installed for the formatter ID to work.
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    // Disable auto-format on save for Python.
+    "editor.formatOnSave": false,
+    // Run organize imports only when explicitly requested.
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  // Arguments passed to black formatter.
+  // Dependency: used by the Black formatter extension.
+  "black-formatter.args": [
+    "--line-length",
+    "120"
+  ],
+  // Arguments passed to isort.
+  // Dependency: used by the isort extension.
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
+  // JSONC files use built-in JSON language features for formatting.
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // JSON files use built-in JSON language features for formatting.
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // Disable delete confirmation in Explorer.
+  "explorer.confirmDelete": false,
+  // Run Makefile configuration automatically when a Makefile is opened.
+  "makefile.configureOnOpen": true,
+  // JavaScript React files use the built-in TypeScript language service for formatting.
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // Font size for the debug console.
+  "debug.console.fontSize": 13,
+  // Disable drag-and-drop confirmation in Explorer.
+  "explorer.confirmDragAndDrop": false,
+  // CSS files use Prettier for formatting.
+  // Dependency: esbenp.prettier-vscode must be installed.
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // TypeScript files use the built-in TypeScript language service for formatting.
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // TypeScript React files use the built-in TypeScript language service for formatting.
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // Prefer Claude Code to open in the panel area.
+  // Dependency: works only if Claude Code extension is installed.
+  "claudeCode.preferredLocation": "panel",
+  // Disable editor minimap.
+  "editor.minimap.enabled": false,
+  // Custom dictionary words for the spell checker.
+  // Dependency: requires the cSpell extension.
+  "cSpell.userWords": [
+    "actix",
+    "chrono",
+    "dotenv",
+    "dotenvy",
+    "dtos",
+    "jsonwebtoken",
+    "passw",
+    "reqwest",
+    "splitn",
+    "sqlx",
+    "subsecond",
+    "timestamptz",
+    "urlencoding",
+    "ziminpro"
+  ],
+  // Width of tree indentation in the Explorer and similar tree views.
+  "workbench.tree.indent": 24,
+  // Always show tree indent guides.
+  "workbench.tree.renderIndentGuides": "always",
+  // Workbench color overrides.
+  // Dependency: custom colors only apply where VS Code supports these token names.
+  "workbench.colorCustomizations": {
+    // Color for tree indent guide lines.
+    "tree.indentGuidesStroke": "#2a534e",
+    // Debug console info message color.
+    "debugConsole.infoForeground": "#96b0f9",
+    // Debug console warning message color.
+    "debugConsole.warningForeground": "#ffcc00",
+    // Debug console error message color.
+    "debugConsole.errorForeground": "#cccccc",
+    // Debug console source file path color.
+    "debugConsole.sourceForeground": "#cccccc"
+  },
+  // Rust file settings.
+  "[rust]": {
+    // Use rust-analyzer for formatting Rust files.
+    // Dependency: rust-lang.rust-analyzer must be installed.
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    // Run fix and organize imports only when explicitly requested.
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  // Suppress LLDB update notifications.
+  // Dependency: applies if the LLDB extension is installed.
+  "lldb.suppressUpdateNotifications": true,
+  // Haskell HLS management handled by GHCup.
+  // Dependency: relevant to Haskell tooling setup.
+  "haskell.manageHLS": "GHCup",
+  // Enable Rust analyzer test explorer integration.
+  "rust-analyzer.testExplorer": true,
+  // Cursor blinking style.
+  "editor.cursorBlinking": "expand",
+  // SQL files use the Prettier SQL formatter.
+  // Dependency: cweijan.vscode-postgresql-client2 must be installed.
+  "[sql]": {
+    "editor.defaultFormatter": "cweijan.vscode-postgresql-client2"
+  },
+  // Automatically update Go tools.
+  "go.toolsManagement.autoUpdate": true,
+  // Automatically fetch Git changes.
+  "git.autofetch": true,
+  // Disable confirmation when syncing Git.
+  "git.confirmSync": false,
+  // Custom CSS overrides for UI font sizes.
+  // Dependency: requires the Custom UI Style extension.
+  // Variables section and Outline section; Requires "Custom UI Style" extension to apply these styles.
+  "custom-ui-style.stylesheet": {
+    // Change font size for most workbench UI content.
+    ".monaco-workbench .part > .content": "font-size: 15px !important;",
+    // Debug Variables/Watch section on macOS.
+    ".monaco-workbench.mac .debug-pane .monaco-list-row .expression": "font-size: 13px !important;",
+    // Debug hover widget content on macOS.
+    ".monaco-workbench.mac .debug-hover-widget .monaco-list-row .expression": "font-size: 13px !important;"
+  },
+  "chat.mcp.serverSampling": {
+    "Global in Code: io.github.miroapp/mcp-server": {
+      "allowedModels": [
+        "copilot/auto",
+        "copilotcli/claude-haiku-4.5",
+        "copilot/claude-haiku-4.5"
+      ]
+    }
+  },
+  "chat.viewSessions.orientation": "stacked",
+}

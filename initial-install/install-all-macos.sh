@@ -129,7 +129,7 @@ configure_git() {
          cim = commit -m
          ciam = commit -a -m
 [core]
-         excludesfile = ~/.gitignore
+         excludesfile = ~/.gitignore_global
          editor = micro
 [pull]
          rebase = false
@@ -316,12 +316,16 @@ plugins=(
 alias zshconfig="micro ~/.zshrc"
 alias ohmyzsh="micro ~/.oh-my-zsh"
 alias nano="micro"
-alias docker="podman"
 alias pd="podman"
 alias ll='lsd -l --group-dirs=first'
 alias la='lsd -l -A --group-dirs=first'
-alias cat=cat
-alias less=less
+
+ftext() {
+  local pattern="${1:-*.*}"
+  local dir="${2:-.}"
+  local prune="${3:-/System/Volumes/Data}"
+  find "$dir" -path "$prune" -prune -o -name "$pattern" -print 2>/dev/null
+}
 
 # ============================================
 EOF
