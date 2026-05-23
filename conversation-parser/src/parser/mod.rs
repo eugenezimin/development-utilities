@@ -2,7 +2,7 @@
 //! Register new parsers here and expose them through [`all_parsers`].
 
 pub mod asr_json;
-pub mod timestamped_text;
+// pub mod timestamped_text;
 
 use crate::traits::Parser;
 
@@ -15,7 +15,7 @@ use crate::traits::Parser;
 pub fn all_parsers() -> Vec<Box<dyn Parser>> {
     vec![
         Box::new(asr_json::AsrJsonParser),
-        Box::new(timestamped_text::TimestampedTextParser),
+        // Box::new(timestamped_text::TimestampedTextParser),
         // Box::new(srt::SrtParser),
         // Box::new(vtt::VttParser),
         // Box::new(csv::CsvParser),
