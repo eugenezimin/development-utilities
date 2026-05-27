@@ -1,114 +1,26 @@
-# Conversation Parser
+### Раздел «Информационная безопасность» — присутствует формально, содержательно пуст
 
-A command-line tool written in Rust that parses structured chat logs, merges consecutive messages from the same author, and outputs a formatted Markdown table with timestamps and durations.
+Раздел содержит только одну фразу («всё взаимодействие должно производиться по TLS») и две ссылки на внешние документы. Необходимо:
+- Провести классификацию данных, обрабатываемых в рамках решения (образы ВМ, конфигурации, метрики, секреты).
+- Описать модель угроз, специфичную для данного решения — не ограничиваясь общей архитектурой авторизации.
+- Как организован процесс ротации сертификатов? Каков срок действия выпускаемых сертификатов?
+- Каким образом обеспечивается безопасность секретов (ROLE_ID/SECRET_ID) при начальной инициализации кластера через kubespray? Есть ли риск их компрометации на этапе bootstrap?
+- Каков план реагирования на инциденты ИБ, специфичный для данного решения?
+- Было ли проведено согласование с ЦКЗ или запланировано? Результат согласования должен быть отражён в документе.
 
----
+### Раздел «Тестирование» — присутствует, однако требует структурирования
+Раздел фактически описывает _архитектуру тестового стенда_, а не _план тестирования_. Это разные вещи.
+- Отсутствуют критерии успешности тестирования — по каким метрикам будет принято решение о готовности к переходу в production?
+- Какие конкретные тест-кейсы запланированы для проверки миграции Cinder/Glance → Spectrum? Например: проверка доступности образов после миграции, проверка консистентности данных, нагрузочное тестирование.
+- Тестирование отказоустойчивости — предусмотрено ли оно? Что происходит при потере одной из нод кластера в процессе миграции?
+- Как тестовый стенд (pd32) соответствует production-окружению (pd34–36)? Есть ли известные расхождения в конфигурации, которые могут повлиять на результаты тестирования?
+- Запланировано ли нагрузочное тестирование для валидации требований к производительности дисков (90k/30k IOPS)?
 
-## Features
-
-- Parses chat logs formatted with bold markdown timestamps and author names
-- Merges consecutive messages from the same author into a single conversation entry
-- Outputs a clean Markdown table with start time, author, and message
-- Accepts an input file path as a command-line argument with a sensible default
-- Gracefully skips malformed lines without crashing
-
----
-
-## Input Format
-
-The parser expects a plain text file where each message line follows this pattern:
-
-```
-**YYYY-MM-DDTHH:MM:SS ** Author Name:** Message content here
-```
-
-Example `output.txt`:
-
-```
-**2024-03-01T09:00:00 ** Alice:** Good morning everyone
-**2024-03-01T09:00:45 ** Alice:** Just a quick heads up about today's standup
-**2024-03-01T09:01:10 ** Bob:** Morning! I'll be a few minutes late
-**2024-03-01T09:05:00 ** Alice:** No worries, we'll wait
-```
-
-Lines that do not match the expected format are silently skipped.
-
----
-
-## Output Format
-
-The tool prints a Markdown table to stdout:
-
-| Start Time | Name | Message |
-|------------|------|---------|
-| 2024-03-01T09:00:00 | Alice | Good morning everyone just a quick heads up about today's standup |
-| 2024-03-01T09:01:10 | Bob | Morning! I'll be a few minutes late |
-| 2024-03-01T09:05:00 | Alice | No worries, we'll wait |
-
-**Notes:**
-Consecutive messages from the same author are merged. If the previous message ended with a period, the next one is appended with a space and capitalized. Otherwise it is joined with a lowercase continuation.
-
----
-
-## Requirements
-
-- [Rust](https://www.rust-lang.org/tools/install) 1.80 or later (for `std::sync::LazyLock` stabilization)
-
-### Dependencies
-
-Add the following to your `Cargo.toml`:
-
-```toml
-[dependencies]
-chrono = "0.4"
-regex = "1"
-```
-
----
-
-## Building
-
-```bash
-cargo build --release
-```
-
-The compiled binary will be available at `./target/release/conversation_parser`.
-
----
-
-## Usage
-
-Run with the default input file (`./output.txt`):
-
-```bash
-./target/release/conversation_parser
-```
-
-Run with a custom input file:
-
-```bash
-./target/release/conversation_parser /path/to/your/chatlog.txt
-```
-
-Redirect output to a Markdown file:
-
-```bash
-./target/release/conversation_parser chatlog.txt > report.md
-```
-
----
-
-## Error Handling
-
-| Situation | Behaviour |
-|-----------|-----------|
-| Input file not found | Exits with an IO error message |
-| Malformed timestamp on a line | Logs a warning to stderr, skips the line |
-| Line does not match expected format | Silently skipped |
-| No valid conversations found | Prints a message to stderr and exits cleanly |
-
----
-
-## License
-
-MIT
+### Раздел «Развертывание и миграция»
+- Стратегия миграции данных отсутствует. Как именно будет выполнена миграция образов (Glance) и блочных томов (Cinder) на Spectrum? Каков порядок действий?
+- Порядок миграции по pod не определён. В какой последовательности будут мигрированы pod 34, 35, 36, 37, 38? Каковы временны́е рамки?
+- Процедура отката отсутствует. Что делать, если миграция pod в production прошла неудачно? Возможен ли откат на Cinder/Glance, и если да — каков его план?
+- Период параллельной работы. Предполагается ли одновременная работа старой и новой систем? Как обеспечивается консистентность данных в этот период?
+- Критерии перехода (Go/No-Go). По каким признакам принимается решение о переходе каждого следующего pod в production?
+- Каков ожидаемый период недоступности сервисов для клиентов в ходе миграции каждого pod? Есть ли план минимизации downtime?
+- В настоящее время раздел по факту дублирует содержимое раздела «Тестирование» (секреты, авторизация, мониторинг, storage) — необходимо разграничить содержимое разделов.

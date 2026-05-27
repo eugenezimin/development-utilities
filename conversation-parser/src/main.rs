@@ -27,15 +27,28 @@ struct Conversation {
 
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
+    let first_arg = args.get(1).map(String::as_str).unwrap_or("");
+    match first_arg {
+        "json" => {
+            json_no_timestamps::json_to_md("./output.txt");
+            return Ok(());
+        }
+        "--help" => {
+            eprintln!("Usage: {} [input_file] [--help]", args[0]);
+            eprintln!("  input_file: Path to the input text file (default: './output.txt')");
+            eprintln!("  --help: Show this help message");
+            return Ok(());
+        }
+        &_ => {
+            json_no_timestamps::json_to_md("./output.txt");
+            return Ok(());
+        }
+    }
+
     let file_path = args.get(1).map(String::as_str).unwrap_or("./output.txt");
     let flag = args.get(2).map(String::as_str).unwrap_or("");
-    if flag == "--help" {
-        eprintln!("Usage: {} [input_file] [--help]", args[0]);
-        eprintln!("  input_file: Path to the input text file (default: './output.txt')");
-        eprintln!("  --help: Show this help message");
-        return Ok(());
-    } else if flag == "json" {
-        json_no_timestamps::json_to_md(file_path, "output.md");
+    if flag == "json" {
+        json_no_timestamps::json_to_md(file_path);
         return Ok(());
     }
 

@@ -46,13 +46,13 @@ fn parse_entries(input: &str) -> Vec<Entry> {
         let trimmed = line.trim();
 
         // Check for speaker: "..."
-        let (key, rest) = if let Some(rest) = trimmed.strip_prefix("speaker:") {
+        let (key, rest) = if let Some(rest) = trimmed.strip_prefix("speaker :") {
             ("speaker", rest)
-        } else if let Some(rest) = trimmed.strip_prefix("\"speaker\":") {
+        } else if let Some(rest) = trimmed.strip_prefix("\"speaker\" :") {
             ("speaker", rest)
-        } else if let Some(rest) = trimmed.strip_prefix("text:") {
+        } else if let Some(rest) = trimmed.strip_prefix("text :") {
             ("text", rest)
-        } else if let Some(rest) = trimmed.strip_prefix("\"text\":") {
+        } else if let Some(rest) = trimmed.strip_prefix("\"text\" :") {
             ("text", rest)
         } else {
             continue;
@@ -146,10 +146,10 @@ fn to_markdown_table(entries: &[Entry]) -> String {
     out
 }
 
-pub fn json_to_md(path: &str, output: &str) {
+pub fn json_to_md(path: &str) {
     let input = fs::read_to_string(path).expect("Failed to read input file");
     println!("Read input file '{}'", path);
-    println!("Read input file '{}'", input);
+    println!("Data in input file '{}'", input);
     let entries = parse_entries(&input);
     let merged = merge_entries(entries);
     let table = to_markdown_table(&merged);
