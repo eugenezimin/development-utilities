@@ -24,6 +24,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 - **[draw-io-config](./draw-io-config/)** - JSON configuration file for Draw.io editor. Should be applied through `Extras->Configuration...` menu.
 
+- **[draw-io-palette](./draw-io-palette/)** - Custom Draw.io configuration that sets de-neonized default shape and edge styles, a cohesive color palette, and preset color swatches. Applied via `Extras->Configuration...` in the Draw.io desktop app.
+
 - **[vscode-configuration-dark](./vscode-configuration-dark/)** - Configuration file for Visual Studio Code editor. It contains a profile to configure a Dark Theme with few customizations and list of necessary extentions.
 
 - **[macOS-icons](./macOS-icons/)** - nice extended version of macOS 26 Tahoe icons in form of PNG images of 1024x1024 pixels with short instruction how to change the tint in the system.
