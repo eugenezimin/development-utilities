@@ -2,8 +2,6 @@
 
 This guide provides step-by-step instructions on how to apply a global configuration to the **Draw.io Desktop Application**. Applying this configuration will set your customized default shape and line styles, overwrite the default color picker with your de-neonized custom palette, and populate the color chooser with optimized preset swatches.
 
----
-
 ## Step-by-Step Installation Instructions
 
 ### Step 1: Open the Advanced Configuration Menu
@@ -24,9 +22,7 @@ Draw.io Desktop loads global configuration settings, default shape behaviors, an
 2. Re-open Draw.io Desktop. 
 3. Select any shape or connector line—your default styles, de-neonized custom schemes, and cohesive preset color matrix will now be fully active.
 
----
-
-## 🎨 The Custom Configuration JSON
+## The Custom Configuration JSON
 
 Copy the following block completely into your **Extras > Configuration...** window:
 
@@ -81,3 +77,4 @@ Copy the following block completely into your **Extras > Configuration...** wind
     "2C7A7B", "319795", "4FD1C5", "81E6D9", "B2F5EA", "E6FFFA", "9B2C2C", "E53E3E"
   ]
 }
+```
