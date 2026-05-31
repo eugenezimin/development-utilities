@@ -20,6 +20,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 ### Productivity Scripts
 
+- **[audio-scripts](./audio-scripts/)** - Swift utilities for managing macOS audio device configurations, including sample rate optimization for USB audio devices
+
 - **[calendar-cleaner](./calendar-cleaner/)** - Python utility for filtering ICS calendar files by date, designed to manage large calendars and remove historical events while preserving metadata
 
 - **[draw-io-config](./draw-io-config/)** - JSON configuration file for Draw.io editor. Should be applied through `Extras->Configuration...` menu.
