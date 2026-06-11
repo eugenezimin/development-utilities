@@ -200,6 +200,7 @@
   "chat.fontFamily": "'AudioLink Mono', 'Anka/Coder', 'Anka/Coder Condensed', 'Courier New', monospace",
   "markdown.preview.fontSize": 13,
   "chat.viewSessions.orientation": "stacked",
-  
-  
+  "files.associations": {
+    "*.swift": "swift"
+  },
 }
