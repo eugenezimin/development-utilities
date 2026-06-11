@@ -18,6 +18,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 - **[git-mirror](./git-mirror/)** - Another repository cloning utility allowing to clone the WHOLE git repository, including WHOLE history from ALL branches. Beware: repositories might be too heavy in size!
 
+- **[ip-parser](./ip-parser/)** - Extract public IPs from logs, enrich them via WHOIS lookups, filter by country, and aggregate into /24 subnets with Markdown reporting
+
 ### Productivity Scripts
 
 - **[audio-scripts](./audio-scripts/)** - Swift utilities for managing macOS audio device configurations, including sample rate optimization for USB audio devices
