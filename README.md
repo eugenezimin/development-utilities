@@ -12,6 +12,8 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 - **[nerd-fonts](./nerd-fonts/)** - Collection of patched programmer fonts with extended glyph support for powerline, devicons, and other terminal enhancements
 
+- **[mail-reminder](./mail-reminder/)** - AppleScript that counts flagged Apple Mail messages by flag color/category and creates daily Reminders app entries summarizing the counts, ideal for scheduling via `launchd`
+
 ### Development Tools
 
 - **[git-cleaner](./git-cleaner/)** - Repository maintenance utility using BFG Repo-Cleaner for removing sensitive data, large files, and cleaning Git history

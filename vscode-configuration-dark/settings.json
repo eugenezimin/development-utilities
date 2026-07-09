@@ -1,6 +1,6 @@
 {
   // UI theme for the entire VS Code workbench.
-  "workbench.colorTheme": "Bluloco Dark Muted W77",
+  "workbench.colorTheme": "Bluloco Dark Italic",
   // Editor text size.
   "editor.fontSize": 15,
   // Wrap editor lines at a bounded width instead of the full editor width.
@@ -199,8 +199,14 @@
   "chat.fontSize": 14,
   "chat.fontFamily": "'AudioLink Mono', 'Anka/Coder', 'Anka/Coder Condensed', 'Courier New', monospace",
   "markdown.preview.fontSize": 13,
-  "chat.viewSessions.orientation": "stacked",
   "files.associations": {
     "*.swift": "swift"
   },
+  "redhat.telemetry.enabled": false,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "chat.viewSessions.enabled": false,
+  "outline.collapseItems": "alwaysCollapse",
 }
