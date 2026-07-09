@@ -43,11 +43,11 @@ tell application "Reminders"
 	repeat with i from 0 to 6
 		set cName to my flagCategoryName(i)
 		set cCount to item (i + 1) of colorCounts
-		-- clear out any previous reminder for this category
-		delete (every reminder of reminderList whose name contains (" Messages (" & cName & ")"))
+		-- clear out any previous reminder for this category (matches "Finance:", "Attention:", etc.)
+		delete (every reminder of reminderList whose name starts with (cName & ":"))
 		if cCount > 0 then
 			tell reminderList
-				make new reminder with properties {name:cName & ": " & cCount & " Flagged Messages", body:"As of " & (current date), due date:dueDateTime, remind me date:dueDateTime}
+				make new reminder with properties {name:cName & ": " & cCount & " Messages", body:"As of " & (current date), due date:dueDateTime, remind me date:dueDateTime}
 			end tell
 		end if
 	end repeat
