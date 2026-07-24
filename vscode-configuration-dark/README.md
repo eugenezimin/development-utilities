@@ -1,3 +1,22 @@
+# VS Code Dark Configuration
+
+A Visual Studio Code profile and settings for a dark-theme setup, including editor/terminal font stacks, word wrap, and a few custom chat keybindings.
+
+## Contents
+
+- [`DefaultVSCodeDarkProfile.code-profile`](./DefaultVSCodeDarkProfile.code-profile) — exported VS Code profile (settings + extensions) that can be imported directly.
+- [`settings.json`](./settings.json) — theme (`Bluloco Dark Italic`), editor typography (font size 15, bounded word wrap at column 120, ligatures, custom font stacks), and terminal font/typography settings.
+- [`keybindings.json`](./keybindings.json) — custom chat keybindings (e.g. remaps previous-code-block navigation to `Ctrl+Cmd+[`).
+
+## Requirements
+
+The font stacks in `settings.json` reference [Anka:Coder](../nerd-fonts/Anka%3ACoder/), [Anka:Coder Condensed](../nerd-fonts/Anka%3ACoder%20Condensed/), and [AudioLink Mono](../nerd-fonts/AudioLink%20Mono/) from [nerd-fonts](../nerd-fonts/) — install those fonts first, or the editor will fall back to `Courier New`/monospace.
+
+## Installation (recommended)
+
+1. Open VS Code's Profile menu (`Cmd+Shift+P` > **Profiles: Import Profile...**).
+2. Select [`DefaultVSCodeDarkProfile.code-profile`](./DefaultVSCodeDarkProfile.code-profile) and import it.
+
 ## Example Configuration Preview
 
 ![Configuration preview](./vscode-theme-view.png)

@@ -46,14 +46,11 @@ The script will automatically check for and offer to install Xcode Command Line 
 ### Quick Start
 
 ```bash
-# Download the script
-curl -O https://your-repo/setup-improved.sh
-
 # Make it executable
-chmod +x setup-improved.sh
+chmod +x install-all-macos.sh
 
 # Run the script
-./setup-improved.sh
+./install-all-macos.sh
 ```
 
 ### What Happens During Installation

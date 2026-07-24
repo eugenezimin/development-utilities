@@ -1,3 +1,5 @@
+# iTerm2 Configuration
+
 ### Make iTerm nice
 
 This repository contains configuration file for iTerm2 to create the view like on the screenshot below.
@@ -51,7 +53,7 @@ alias cat=cat
 alias less=less
 ```
 
-or you may try to use `install-all.sh` script on your own risk.
+or apply the settings manually using the steps above.
 
 ### Read configuration into iTerm
 
