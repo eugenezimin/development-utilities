@@ -267,6 +267,79 @@ install_syntax_highlighting() {
     fi
 }
 
+# Install zsh-autocomplete
+install_zsh_autocomplete() {
+    local plugin_path="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autocomplete"
+
+    if [ -d "$plugin_path" ]; then
+        log_info "zsh-autocomplete already installed"
+    else
+        log_info "Installing zsh-autocomplete..."
+        git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$plugin_path" || {
+            log_warning "zsh-autocomplete installation failed (non-critical)"
+        }
+        log_success "zsh-autocomplete installed"
+    fi
+}
+
+# Add zsh-autocomplete source line to zshrc
+add_zsh_autocomplete_source() {
+    local zshrc="$HOME/.zshrc"
+    local source_line='source $ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
+    local target_line='source $ZSH/oh-my-zsh.sh'
+
+    if [ ! -f "$zshrc" ]; then
+        log_warning ".zshrc not found; skipping zsh-autocomplete source insertion"
+        return
+    fi
+
+    if grep -qF "$source_line" "$zshrc"; then
+        log_info "zsh-autocomplete source line already present in zshrc"
+        return
+    fi
+
+    if ! grep -qF "$target_line" "$zshrc"; then
+        log_warning "Could not find '$target_line' line in zshrc; skipping autocomplete source insertion"
+        return
+    fi
+
+    awk -v target="$target_line" -v addition="$source_line" '
+        { print }
+        $0 == target { print addition }
+    ' "$zshrc" > "$zshrc.tmp" && mv "$zshrc.tmp" "$zshrc"
+
+    log_success "Added zsh-autocomplete source line to zshrc"
+}
+
+# Add zsh-syntax-highlighting source line to zshrc
+add_zsh_syntax_highlighting_source() {
+    local zshrc="$HOME/.zshrc"
+    local source_line='source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
+    local target_line='source $ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
+
+    if [ ! -f "$zshrc" ]; then
+        log_warning ".zshrc not found; skipping zsh-syntax-highlighting source insertion"
+        return
+    fi
+
+    if grep -qF "$source_line" "$zshrc"; then
+        log_info "zsh-syntax-highlighting source line already present in zshrc"
+        return
+    fi
+
+    if ! grep -qF "$target_line" "$zshrc"; then
+        log_warning "Could not find '$target_line' line in zshrc; skipping syntax-highlighting source insertion"
+        return
+    fi
+
+    awk -v target="$target_line" -v addition="$source_line" '
+        { print }
+        $0 == target { print addition }
+    ' "$zshrc" > "$zshrc.tmp" && mv "$zshrc.tmp" "$zshrc"
+
+    log_success "Added zsh-syntax-highlighting source line to zshrc"
+}
+
 # Install CLI tools
 install_cli_tools() {
     log_info "Installing CLI tools..."
@@ -350,6 +423,9 @@ main() {
     install_ohmyzsh
     install_powerlevel10k
     install_syntax_highlighting
+    install_zsh_autocomplete
+    add_zsh_autocomplete_source
+    add_zsh_syntax_highlighting_source
     install_cli_tools
     generate_zshrc_additions
     
