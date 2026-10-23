@@ -1,0 +1,3 @@
+# zsh reads this file before ZDOTDIR is known; everything else lives in ~/.config/zsh.
+export ZDOTDIR="$HOME/.config/zsh"
+[[ -r "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"

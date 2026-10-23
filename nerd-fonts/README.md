@@ -11,8 +11,8 @@ A collection of patched/custom monospace fonts for use in terminals, editors, an
 | [Atlassian Sans](./Atlassian%20Sans/) | Atlassian's Sans typeface. |
 | [AudioLink Console](./AudioLink%20Console/) | Console/terminal weight of AudioLink. |
 | [AudioLink Mono](./AudioLink%20Mono/) | Monospace weight of AudioLink. |
-| [Charlie Display](./Charlie%20Display/) | Display weight of Charlie. |
-| [Charlie Text](./Charlie%20Text/) | Text weight of Charlie. |
+| [Charlie Display](./Charlie%20Display/) | Display weight of Charlie (Black, Bold, Regular, Semibold), with Cyrillic. |
+| [Charlie Text](./Charlie%20Text/) | Text weight of Charlie (Thin, Light, Regular, Semibold, Bold, Black), with Cyrillic. |
 | [Google Mono Sans Nerd](./Google%20Mono%20Sans%20Nerd/) | Google Sans Mono patched with Nerd Font glyphs. See its own [README](./Google%20Mono%20Sans%20Nerd/README.md). |
 
 ## Installation (macOS)

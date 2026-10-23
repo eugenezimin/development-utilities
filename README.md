@@ -6,7 +6,7 @@ A curated collection of automation scripts, configuration tools, and utilities d
 
 ### System Configuration
 
-- **[initial-install](./initial-install/)** - Comprehensive shell script for bootstrapping a complete macOS development environment with Homebrew, Git configuration, Oh My Zsh, Powerlevel10k, and essential CLI tools
+- **[initial-install](./initial-install/)** - Interactive script that restores a complete macOS setup (Homebrew and App Store apps, zsh with antidote + starship, fonts, Git, VS Code/iTerm2 settings, dev toolchains), with runtime checklists to pick what to install
 
 - **[iterm2-config](./iterm2-config/)** - Pre-configured iTerm2 settings and profiles for a production-ready terminal experience, including hotkey window setup and theme configurations
 

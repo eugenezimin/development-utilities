@@ -1,0 +1,91 @@
+# Starship prompt, modelled on the Powerlevel10k "lean" layout from ~/.config/zsh/.p10k.zsh:
+#   line 1: directory + git          right side: status, duration, jobs, context, time
+#   line 2: ❯
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """$directory$git_branch$git_state$git_status
+$character"""
+
+right_format = """$status$cmd_duration$jobs$direnv$python$nodejs$java$rust$aws$kubernetes$time"""
+
+[directory]
+style = "bold 31"
+truncation_length = 6
+truncate_to_repo = false
+truncation_symbol = "…/"
+read_only = " 🔒"
+
+[git_branch]
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+symbol = ""
+style = "76"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "178"
+
+[character]
+success_symbol = "[❯](76)"
+error_symbol = "[❯](196)"
+vimcmd_symbol = "[❮](76)"
+
+[status]
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "✘"
+style = "160"
+
+[cmd_duration]
+min_time = 3000
+format = "[$duration]($style) "
+style = "101"
+
+[jobs]
+format = "[$symbol$number]($style) "
+symbol = "⚙"
+style = "70"
+
+[direnv]
+disabled = false
+format = "[$symbol$loaded/$allowed]($style) "
+style = "178"
+
+[python]
+format = "[${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
+symbol = "py "
+style = "37"
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+symbol = "node "
+style = "70"
+
+[java]
+format = "[$symbol($version )]($style)"
+symbol = "java "
+style = "32"
+
+[rust]
+format = "[$symbol($version )]($style)"
+symbol = "rs "
+style = "37"
+
+[aws]
+disabled = true   # p10k only showed this while typing aws commands
+format = "[$symbol($profile )(\\($region\\) )]($style)"
+symbol = "aws "
+style = "208"
+
+[kubernetes]
+disabled = true
+format = "[$symbol$context( \\($namespace\\))]($style) "
+symbol = "k8s "
+style = "134"
+
+[time]
+disabled = false
+format = "at [$time]($style)"
+time_format = "%I:%M:%S %p"
+style = "66"

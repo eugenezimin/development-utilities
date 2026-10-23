@@ -1,0 +1,26 @@
+# antidote plugin list. Edit, then open a new shell; the bundle rebuilds automatically.
+# Update all plugins: `antidote update`
+# Order matters: zsh-autocomplete late, zsh-syntax-highlighting last.
+
+# Oh My Zsh pieces, without the framework. use-omz must come first.
+getantidote/use-omz
+# Only the OMZ lib files that shaped the old setup. termsupport.zsh is left out
+# because conf.d/60-ghostty-title.zsh owns the terminal title.
+ohmyzsh/ohmyzsh path:lib/completion.zsh
+ohmyzsh/ohmyzsh path:lib/directories.zsh
+ohmyzsh/ohmyzsh path:lib/grep.zsh
+ohmyzsh/ohmyzsh path:lib/history.zsh
+ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
+ohmyzsh/ohmyzsh path:lib/misc.zsh
+ohmyzsh/ohmyzsh path:lib/theme-and-appearance.zsh
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/colorize
+ohmyzsh/ohmyzsh path:plugins/jsontools
+ohmyzsh/ohmyzsh path:plugins/macos
+
+# Prompt: only cloned; prompt.zsh sources it when ZSH_PROMPT=p10k
+romkatv/powerlevel10k kind:clone
+
+marlonrichert/zsh-autocomplete                     # runs compinit itself
+zsh-users/zsh-syntax-highlighting                  # must stay last
