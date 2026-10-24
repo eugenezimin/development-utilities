@@ -102,7 +102,7 @@ This copies `~/.config/zsh`, `~/.zshenv`, `~/.config/starship.toml` and `~/.giti
 The zsh config lives in `~/.config/zsh` (`ZDOTDIR`), loaded by `~/.zshenv`:
 
 - **antidote** loads plugins from `.zsh_plugins.txt`: Oh My Zsh lib files and plugins (git, colored-man-pages, colorize, jsontools, macos) without the framework, zsh-autocomplete and zsh-syntax-highlighting
-- **starship** is the prompt; `ZSH_PROMPT=p10k zsh` switches to Powerlevel10k
+- **starship** is the prompt; `ZSH_PROMPT=p10k zsh` switches to Powerlevel10k. It shows the path with parent folders cut to one letter and the repo root highlighted (computed by `_prompt_dir` in `prompt.zsh`), git counts (ahead/behind, staged, modified, untracked, stash, conflicts), changed lines, rebase/merge progress, and the project version, language and Docker context in project folders. Icons need a Nerd Font, or Ghostty, which bundles the symbols
 - `conf.d/` holds options, environment, aliases, functions, tool setup, the Ghostty tab title and the login greeting (`90-motd.zsh`: a system summary table, printed once per terminal; run `motd` to show it again)
 - **Secrets** go in `~/.config/zsh/.zsh_secrets` (chmod 600). It is never copied into the repo; the script creates an empty one
 
