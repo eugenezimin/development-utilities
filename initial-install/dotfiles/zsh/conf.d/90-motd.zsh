@@ -203,7 +203,9 @@ motd() {
   fi
 
   # ── Heaviest processes ──────────────────────────────────────────────────────
-  local topcpu=$(ps -Arc -o pcpu= -o comm= | awk '{p=$1; $1=""; sub(/^ +/,"")} $0 != "ps" {printf "%s %s%%", $0, p; exit}')
+  # skip this shell (busy starting up) and ps itself
+  local topcpu=$(ps -Arc -o pid= -o pcpu= -o comm= |
+                 awk -v me=$$ '{id=$1; p=$2; $1=$2=""; sub(/^ +/,"")} id != me && $0 != "ps" {printf "%s %s%%", $0, p; exit}')
   local topmem=$(ps -Amc -o rss= -o comm= | awk 'NR==1 {r=$1/1024; u="MB"; if (r >= 1024) {r/=1024; u="GB"}
                                                          $1=""; sub(/^ +/,""); printf "%s %.1f %s", $0, r, u}')
 
