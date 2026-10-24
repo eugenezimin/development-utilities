@@ -636,6 +636,9 @@ restore_shell() {
         MANUAL+=("Add API keys and tokens to $ZDOT_TARGET/.zsh_secrets")
     fi
 
+    # conf.d/90-motd.zsh prints the greeting, so silence the built-in "Last login" line
+    [[ -e "$HOME/.hushlogin" ]] || run touch "$HOME/.hushlogin"
+
     # With ZDOTDIR set, zsh no longer reads these
     local old
     for old in "$HOME/.zshrc" "$HOME/.zprofile"; do

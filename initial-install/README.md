@@ -103,7 +103,7 @@ The zsh config lives in `~/.config/zsh` (`ZDOTDIR`), loaded by `~/.zshenv`:
 
 - **antidote** loads plugins from `.zsh_plugins.txt`: Oh My Zsh lib files and plugins (git, colored-man-pages, colorize, jsontools, macos) without the framework, zsh-autocomplete and zsh-syntax-highlighting
 - **starship** is the prompt; `ZSH_PROMPT=p10k zsh` switches to Powerlevel10k
-- `conf.d/` holds options, environment, aliases, functions, tool setup and the Ghostty tab title
+- `conf.d/` holds options, environment, aliases, functions, tool setup, the Ghostty tab title and the login greeting (`90-motd.zsh`: a system summary table, printed once per terminal; run `motd` to show it again)
 - **Secrets** go in `~/.config/zsh/.zsh_secrets` (chmod 600). It is never copied into the repo; the script creates an empty one
 
 Restoring copies files over the existing directory, so history, sessions and `.zsh_secrets` are kept. A previous `~/.zshrc` is no longer read once `ZDOTDIR` is set.
